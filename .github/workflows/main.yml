@@ -1,0 +1,24 @@
+name: Python Continuous Integration
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies and setup the environment
+        run: make install
+      - name: Lint with Pylint
+        run: make lint
+      - name: Format with Python black
+        run: make format
+      - name: Test with Pytest
+        run: make test
