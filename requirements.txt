@@ -1,5 +1,7 @@
+black
+click
 pylint
 pytest
-click
-black
 pytest-cov
+torch
+transformers
